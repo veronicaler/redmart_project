@@ -13,11 +13,14 @@
 (0..10).each do |i|
     Product.create(
       product_name: Faker::Name.name,
+      product_price: Faker::Number.decimal(2)
     )
   end
 
   (0..10).each do |i|
       User.create(
         name: Faker::Name.name,
+        email: Faker::Internet.email,
+        credit_card_no: Faker::Business.credit_card_number
       )
     end

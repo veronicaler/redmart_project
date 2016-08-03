@@ -1,13 +1,14 @@
-<h1>New User</h1>
+<% provide(:heading, "Signup") %>
 
-<%#= render 'form', user: @user %>
+<h1>Signup page</h1>
 
-<%#= link_to 'Back', users_path %>
+<div class="row">
+  <div class="form-login col-xs-6 col-xs-offset-3">
+    <%= form_for(@user) do |f| %>
 
-<%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |message| %>
@@ -42,9 +43,6 @@
     <%= f.text_field :credit_card_no %>
   </div>
 
-  <!-- <div class="actions">
-    <%= f.submit %>
-  </div> -->
   <div>
   <%= f.submit "Create Account", class: "btn btn-primary" %>
 </div>

@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20160728095905) do
 
   create_table "products", force: :cascade do |t|
-    t.text     "product_name"
-    t.integer  "product_price"
+    t.string   "product_name"
+    t.float    "product_price"
     t.integer  "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -22,22 +22,24 @@ ActiveRecord::Schema.define(version: 20160728095905) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
-    t.integer  "users_id"
-    t.integer  "products_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["products_id"], name: "index_reviews_on_products_id"
-    t.index ["users_id"], name: "index_reviews_on_users_id"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id", "created_at"], name: "index_reviews_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.text     "name"
-    t.text     "email"
-    t.text     "address"
-    t.text     "password"
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "password_digest"
     t.integer  "credit_card_no"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "remember_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

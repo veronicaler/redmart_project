@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h2>User Profile Page</h2>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -25,5 +25,16 @@
   <%= @user.credit_card_no %>
 </p>
 
+<div class="col-md-8">
+  <% if @user.reviews.any? %>
+  <h3>Reviews (<%= @user.reviews.count %>)</h3>
+  <ol class="reviews">
+    <%= render @review %>
+  </ol>
+  <%= will_paginate @review %>
+  <% end %>
+
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', root_path %>
