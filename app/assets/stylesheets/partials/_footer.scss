@@ -1,0 +1,25 @@
+$blue: #049cdb;
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $blue;
+  color: $blue;
+  a {
+    color: $blue;
+    &:hover {
+      color: $blue;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}

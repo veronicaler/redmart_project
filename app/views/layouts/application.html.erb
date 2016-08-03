@@ -4,11 +4,33 @@
     <title>Redmart</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+    <%= render 'partials/header' %>
+
+    <h1><%#= heading_detail( yield(:heading) ) %></h1>
+
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+      <% end %>
+
+      <div class="jumbotron">
+        <%= yield %>
+      <!-- </div> -->
+
+      <!-- <%= debug(params) if Rails.env.development? %>
+    </div> -->
+
+    <%= render 'partials/footer' %>
+
   </body>
 </html>
