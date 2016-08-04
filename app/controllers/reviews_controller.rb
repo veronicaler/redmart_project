@@ -22,12 +22,17 @@ class ReviewsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @review = current_user.reviews.build(review_params)
+    @product = Product.find( params[:product_id])
+    @review = @product.reviews.build(review_params)
+    @review.user_id = current_user.id
+
+
     if @review.save
       flash[:success] = "review created!"
-      redirect_to root_url
+      redirect_to @product
     else
-      render 'static_pages/home'
+      @feed_items = []
+      redirect_to @product
     end
   end
 
@@ -64,6 +69,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:review_content)
+      params.require(:review).permit(:content)
     end
   end

@@ -10,8 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if logged_in?
     @user = User.find(params[:id])
-    @reviews = @user.reviews.paginate(page: params[:page])
+    # @review = current_user.reviews.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
 
   # GET /users/new

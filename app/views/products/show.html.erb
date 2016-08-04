@@ -1,21 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Product Name:</strong>
-  <%= @product.product_name %>
-</p>
-<p>
-  <strong>Price S$:</strong>
-  <%= @product.product_price %>
-</p>
+<div class="row">
+    <aside class="col-md-4">
+        <section>
+          <p>
+            <strong>Product Name:</strong>
+            <%= @product.product_name %>
+          </p>
+          <p>
+            <strong>Price S$:</strong>
+            <%= @product.product_price %>
+          </p>
+          <%= link_to 'Back', products_path %>
+        </section>
+        <% if logged_in? %>
+          <section class="review_form">
+              <%= render 'shared/review_form' %>
+          </section>
+        <% end %>
 
-<div></div>
+    </aside>
 
-
-<%= link_to 'Back', products_path %>
-
-
-<div>
-  <table class="col-lg-12"></table>
-
+    <div class="col-md-8">
+        <h3>Reviews Feed</h3>
+        <%= render 'shared/feed' %>
+    </div>
 </div>

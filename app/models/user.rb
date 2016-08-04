@@ -18,7 +18,9 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-
+  def feed
+    Review.where("user_id = ?", id)
+  end
   # Returns a random token.
   def new_token
     SecureRandom.urlsafe_base64
