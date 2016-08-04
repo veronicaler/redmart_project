@@ -1,13 +1,13 @@
 <% provide(:heading, "Signup") %>
 
-<h1>Signup Page</h1>
+<h1>Signup</h1>
 
 <div class="row">
   <div class="form-login col-xs-6 col-xs-offset-3">
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
-  
+
 
   <div class="field">
     <%= f.label :name %>

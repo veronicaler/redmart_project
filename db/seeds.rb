@@ -10,6 +10,8 @@
 
 # seeds.rb is a way of automating the population of the database with testing data.
 
+
+
 (0..10).each do |i|
     Product.create(
       product_name: Faker::Name.name,

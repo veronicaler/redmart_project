@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-    <aside class="col-md-4">
+    <aside class="col-md-8">
+      <%= link_to image_tag("ToystoryCrew.png", alt: "ToystoryCrew",)%>
+
         <section>
           <p>
             <strong>Product Name:</strong>
@@ -11,18 +13,18 @@
             <strong>Price S$:</strong>
             <%= @product.product_price %>
           </p>
-          <%= link_to 'Back', products_path %>
+
         </section>
         <% if logged_in? %>
           <section class="review_form">
               <%= render 'shared/review_form' %>
           </section>
         <% end %>
-
+        <%= link_to 'Back', products_path %>
     </aside>
 
-    <div class="col-md-8">
-        <h3>Reviews Feed</h3>
+    <div class="col-md-4">
+        <h3>Product Reviews</h3>
         <%= render 'shared/feed' %>
     </div>
 </div>

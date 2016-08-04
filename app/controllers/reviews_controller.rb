@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
 
     if @review.save
-      flash[:success] = "review created!"
+      flash[:success] = "Your Review has been created!"
       redirect_to @product
     else
       @feed_items = []
