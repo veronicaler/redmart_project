@@ -46,9 +46,7 @@
   </div>
 </div>
 
-the value of logied in <%= !!logged_in? %>
-
-<% if logged_in? %>
+<%# if logged_in? %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -59,7 +57,7 @@ the value of logied in <%= !!logged_in? %>
     </section>
   </aside>
 </div>
-<% end %>
+<%# end %>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
