@@ -18,9 +18,19 @@
   end
 
   (0..10).each do |i|
-      User.create(
+      User.create!(
         name: Faker::Name.name,
         email: Faker::Internet.email,
-        credit_card_no: Faker::Business.credit_card_number
+        credit_card_no: Faker::Business.credit_card_number,
+        password: 'password',
+        password_confirmation: 'password'
       )
-    end
+  end
+
+  10.times do
+      review = Review.create!(
+        content: Faker::Lorem.sentence,
+        product_id: rand(1..10),
+        user_id: rand(1..10)
+      )
+  end
